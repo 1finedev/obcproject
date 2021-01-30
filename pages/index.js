@@ -1,65 +1,73 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Particles from "./Particle";
+import { useEffect, useState } from "react";
+import Head from "next/head";
+import { gsap } from "gsap";
+import { ReactSVG } from "react-svg";
 
 export default function Home() {
+  const [counter, setCounter] = useState({ users: 10467894 });
+  const [users, setUsers] = useState();
+
+  const handleCounter = () => {
+    const value = counter.users;
+    const formattedNo = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    setUsers(formattedNo);
+  };
+  useEffect(() => {
+    handleCounter();
+    const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
+    tl.to(".text", { y: "0%", duration: 1, stagger: 0.25 });
+    tl.to(".slider", { y: "-100%", duration: 1.5, delay: 0.5 });
+    tl.to(".intro", { y: "-100%", duration: 1 }, "-=1");
+    tl.fromTo(".container", { opacity: 0 }, { opacity: 1, duration: 1 }, "-=1");
+    tl.fromTo(".buttons", { opacity: 0 }, { opacity: 1, duration: 1 }, "-=1");
+  }, []);
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Potta+One&family=Sacramento&display=swap"
+          rel="stylesheet"
+        />
+        <title>#1 trusted empowerment website</title>
       </Head>
+      <Particles />
+      <div>
+        <main className="landing">
+          <div className="container">
+            <div>
+              <h2 className="join">
+                Join the {counter ? <p className="">{users}</p> : null}{" "}
+                registered users on
+              </h2>
+            </div>
+            <h2 className="big-text">HustleBee Africa 🌍</h2>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+            <div className="button-container">
+              <button className="buttons">
+                <span className="span"> Login/Signup Now</span>
+              </button>
+              <button className="buttons">
+                <span className="span"> Learn More...</span>
+              </button>
+            </div>
+          </div>
+        </main>
+        <div className="intro">
+          <div className="intro-text">
+            <h1 className="hide">
+              <span className="text">🇳🇬 Innovative empowerment</span>
+            </h1>
+            <h1 className="hide">
+              <span className="text">for Africans</span>
+            </h1>
+            <h1 className="hide">
+              <span className="text">all over the world.🇳</span>
+            </h1>
+          </div>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+        <div className="slider"></div>
+      </div>
     </div>
-  )
+  );
 }

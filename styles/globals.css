@@ -1,16 +1,221 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+/* Global Rules and main style */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+main {
+  font-family: "Heebo", sans-serif;
+}
+.landing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 10vh;
+  padding-top: 15vh;
+  text-align: center;
+}
+.container {
+  flex-basis: content;
+}
+
+.big-text {
+  font-size: 6em;
+  font-family: "Alfa Slab One", cursive;
+  color: white;
+  margin-bottom: 15px;
+}
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.buttons {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  border: hidden;
+  width: 30%;
+  margin: 10px;
+  opacity: 0.5;
+  color: black;
+  z-index: 3;
+  box-shadow: 0px 0px 16px #c80de0;
+  transition: all 1s ease-in-out;
+  flex-basis: content;
+}
+button:focus {
+  outline: none;
+}
+.span {
+  font-size: 1rem;
+  font-family: "Potta One", cursive;
+  opacity: 1;
+}
+.buttons:hover {
+  width: 50%;
+  box-shadow: 0px 0px 36px #c80de0;
+  transition: all 0.5s ease-in-out;
+  background-color: #c80de0;
+  color: white;
+  opacity: 1;
+}
+.join {
+  font-size: 2em;
+  font-family: "potta One", cursive;
+  color: white;
+  margin-bottom: 10vh;
+}
+
+/* Authentication form style */
+
+/* Intro Animation Css */
+.intro {
+  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+}
+.slider {
+  background: rgb(97, 105, 109);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+}
+
+.intro-text {
+  color: rgb(233, 233, 233);
+  font-family: "Heebo", sans-serif;
+  font-size: 3rem;
+}
+
+.hide {
+  background: black;
+  overflow: hidden;
+}
+
+.hide span {
+  transform: translateY(100%);
+  display: inline-block;
+}
+
+/* Particle background style */
+#tsparticles {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+/* Media Querries */
+/* @media all and (min-width: 50px) {
+  body {
+    font-size: 0.1em;
+  }
+}
+@media all and (min-width: 100px) {
+  body {
+    font-size: 0.2em;
+  }
+}
+@media all and (min-width: 200px) {
+  body {
+    font-size: 0.4em;
+  }
+}
+@media all and (min-width: 300px) {
+  body {
+    font-size: 0.6em;
+  }
+}
+@media all and (min-width: 400px) {
+  body {
+    font-size: 0.8em;
+  }
+}
+@media all and (min-width: 500px) {
+  body {
+    font-size: 1em;
+  }
+}
+@media all and (min-width: 600px) {
+  body {
+    font-size: 1.2em;
+  }
+}
+@media all and (min-width: 700px) {
+  body {
+    font-size: 1.4em;
+  }
+}
+@media all and (min-width: 800px) {
+  body {
+    font-size: 1.6em;
+  }
+}
+@media all and (min-width: 900px) {
+  body {
+    font-size: 1.8em;
+  }
+}
+@media all and (min-width: 1000px) {
+  body {
+    font-size: 2em;
+  }
+}
+@media all and (min-width: 1100px) {
+  body {
+    font-size: 2.2em;
+  }
+}
+@media all and (min-width: 1200px) {
+  body {
+    font-size: 2.4em;
+  }
+}
+@media all and (min-width: 1300px) {
+  body {
+    font-size: 2.6em;
+  }
+}
+@media all and (min-width: 1400px) {
+  body {
+    font-size: 2.8em;
+  }
+}
+@media all and (min-width: 1500px) {
+  body {
+    font-size: 3em;
+  }
+}
+@media all and (min-width: 1500px) {
+  body {
+    font-size: 3.2em;
+  }
+}
+@media all and (min-width: 1600px) {
+  body {
+    font-size: 3.4em;
+  }
+}
+@media all and (min-width: 1700px) {
+  body {
+    font-size: 3.6em;
+  }
+} */
