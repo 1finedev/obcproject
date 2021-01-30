@@ -2,7 +2,6 @@ import Particles from "./Particle";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { gsap } from "gsap";
-import { ReactSVG } from "react-svg";
 
 export default function Home() {
   const [counter, setCounter] = useState({ users: 10467894 });
