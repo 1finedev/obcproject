@@ -7,16 +7,18 @@ import User from "../../../models/userModel";
 export default async (req, res) => {
   return new Promise(async (resolve) => {
     // Connect to database
-    await dbConnect(true);
 
     // request methods condition
     const { method } = req;
 
     if (method === "GET") {
       try {
+        await dbConnect(true);
+
         await Auth(req, "user");
         if (Authentication.validated === true) {
           const users = await User.find({});
+          await dbConnect(false);
           res
             .status(200)
             .json({ status: "success", total: users.length, data: users });
@@ -30,6 +32,8 @@ export default async (req, res) => {
       }
     } else if (method === "POST") {
       try {
+        await dbConnect(true);
+
         const { username, name, mobile, email } = req.body;
         const usernameUsed = await User.findOne({ username });
         if (usernameUsed) {
@@ -78,7 +82,6 @@ export default async (req, res) => {
         msg: `No ${method} handler defined for /${endpoint} route!`,
       });
     }
-    await dbConnect(false);
     resolve();
   });
 };

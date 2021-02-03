@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 import { serialize } from "cookie";
+import dbConnect from "./dbConnect";
 
 // function to sign token
 const signToken = (id) => {
@@ -14,7 +15,7 @@ const signToken = (id) => {
   );
 };
 // function to create token and send response to client
-const createSendToken = (user, statusCode, res) => {
+const createSendToken = async (user, statusCode, res) => {
   // call token function
   const token = signToken(user._id);
   const cookieOptions = {
@@ -30,7 +31,9 @@ const createSendToken = (user, statusCode, res) => {
 
   // Remove password from output
   user.password = undefined;
-  return res.status(statusCode).json({ status: "success", token, data: user });
+  await dbConnect(false);
+  res.status(statusCode).json({ status: "success", token, data: user });
+  return;
 };
 
 export default createSendToken;
