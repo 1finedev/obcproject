@@ -33,10 +33,10 @@ export default async (req, res) => {
     } else if (method === "POST") {
       try {
         await dbConnect(true);
-
         const { username, name, mobile, email } = req.body;
         const usernameUsed = await User.findOne({ username });
         if (usernameUsed) {
+          await dbConnect(false);
           return res.status(400).json({
             status: "error",
             msg: "Username has already been used",
