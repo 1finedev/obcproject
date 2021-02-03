@@ -1,0 +1,14 @@
+Login POST: /api/users/login
+Signup POST: /api/users
+Logout POST: /api/users/logout
+forgot Password POST: /api/users/forgotPassword //generate reset tokens
+reset Password POST: /api/users/resetPassword
+Get all Users GET: /api/users
+
+
+
+other functions
+1. mongoose connect function
+2. Protect function - returns object
+3. Mongoose schema // models
+4. Send Email  //utils

@@ -9,12 +9,21 @@
     "postbuild": "next-on-netlify"
   },
   "dependencies": {
+    "@rh389/shortid": "^2.2.8",
+    "bcryptjs": "^2.4.3",
+    "crypto": "^1.0.1",
     "gsap": "^3.6.0",
-    "next": "10.0.6",
+    "helmet": "^4.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.14",
+    "next": "^10.0.6",
     "next-on-netlify": "^2.8.6",
+    "nodemailer": "^6.4.17",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-gsap": "^2.2.1",
-    "react-tsparticles": "^1.18.11"
+    "react-tsparticles": "^1.18.11",
+    "validator": "^13.5.2",
+    "xss-clean": "^0.1.1"
   }
 }
