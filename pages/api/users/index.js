@@ -13,12 +13,12 @@ export default async (req, res) => {
 
     if (method === "GET") {
       try {
-        await dbConnect(true);
+        dbConnect(true);
 
         await Auth(req, "user");
         if (Authentication.validated === true) {
           const users = await User.find({});
-          await dbConnect(false);
+          dbConnect(false);
           res
             .status(200)
             .json({ status: "success", total: users.length, data: users });
@@ -32,11 +32,11 @@ export default async (req, res) => {
       }
     } else if (method === "POST") {
       try {
-        await dbConnect(true);
+        dbConnect(true);
         const { username, name, mobile, email } = req.body;
         const usernameUsed = await User.findOne({ username });
         if (usernameUsed) {
-          await dbConnect(false);
+          dbConnect(false);
           return res.status(400).json({
             status: "error",
             msg: "Username has already been used",
