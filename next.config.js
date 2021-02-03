@@ -1,6 +1,6 @@
 module.exports = {
   // Target must be serverless
-  target: "serverless",
+  // target: "serverless",
   env: {
     MONGO_URI:
       "mongodb+srv://finebreed:B3x0amUQUCddwMb6@hustle-bee-01.hkmc6.mongodb.net/hustlebee?retryWrites=true&w=majority",
