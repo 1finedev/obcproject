@@ -1,6 +1,6 @@
 [build]
   command   = "npm run build"
-  functions = ".next/server/pages/api/"
+  # functions = ".next/server/pages/api/"
   publish   = ".next"
   
 [dev]
