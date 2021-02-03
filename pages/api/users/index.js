@@ -7,7 +7,7 @@ import User from "../../../models/userModel";
 export default async (req, res) => {
   return new Promise(async (resolve) => {
     // Connect to database
-    await dbConnect();
+    await dbConnect(true);
 
     // request methods condition
     const { method } = req;
@@ -78,6 +78,7 @@ export default async (req, res) => {
         msg: `No ${method} handler defined for /${endpoint} route!`,
       });
     }
+    await dbConnect(false);
     resolve();
   });
 };
