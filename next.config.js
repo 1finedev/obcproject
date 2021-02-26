@@ -15,4 +15,5 @@ module.exports = {
   api: {
     externalResolver: true,
   },
+  target: "serverless",
 };
