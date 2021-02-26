@@ -9,8 +9,8 @@ export default async (req, res) => {
     netlifyFunctionParams: { context },
   } = req;
 
-  console.log(connection.msg);
   context.callbackWaitsForEmptyEventLoop = false;
+  console.log(connection.msg);
 
   // Connect to database
   await dbConnect();
