@@ -6,6 +6,12 @@ import User from "../../../models/userModel";
 import mongoose from "mongoose";
 
 export default async (req, res) => {
+  const {
+    netlifyFunctionParams: { context },
+  } = req;
+
+  context.callbackWaitsForEmptyEventLoop = false;
+
   // Connect to database
   await dbConnect();
   // request methods condition

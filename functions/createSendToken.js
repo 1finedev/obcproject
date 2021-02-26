@@ -30,7 +30,6 @@ const createSendToken = async (user, statusCode, res) => {
 
   // Remove password from output
   user.password = undefined;
-  mongoose.disconnect();
   res.status(statusCode).json({ status: "success", token, data: user });
   return;
 };
