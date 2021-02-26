@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import dbConnect from "../../../functions/dbConnect";
+import dbConnect, { connection } from "../../../functions/dbConnect";
 import Auth, { Authentication } from "../../../functions/protect";
 import createSendToken from "../../../functions/createSendToken";
 import User from "../../../models/userModel";
@@ -9,6 +9,7 @@ export default async (req, res) => {
     netlifyFunctionParams: { context },
   } = req;
 
+  console.log(connection.msg);
   context.callbackWaitsForEmptyEventLoop = false;
 
   // Connect to database

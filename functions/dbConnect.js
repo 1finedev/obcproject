@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
-const connection = {};
+export const connection = {};
 
 async function dbConnect() {
   console.log("existing conn");
   if (connection.isConnected) {
+    connection.msg = "Using Existing Conn";
     return;
   }
   const db = await mongoose.connect(process.env.MONGO_URI, {
@@ -16,7 +17,7 @@ async function dbConnect() {
   console.log("new conn");
 
   connection.isConnected = db.connections[0].readyState;
-  console.log(connection.isConnected);
+  connection.msg = "Using New Conn";
   return;
 }
 
