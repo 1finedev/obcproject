@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import dbConnect from "../utils/dbConnect";
+import dbConnect from "../../../functions/dbConnect";
 import Auth, { Authentication } from "../../../functions/protect";
 import createSendToken from "../../../functions/createSendToken";
 import User from "../../../models/userModel";

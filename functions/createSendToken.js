@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 import { serialize } from "cookie";
-import mongoose from "mongoose";
 // function to sign token
 const signToken = (id) => {
   return jwt.sign(
