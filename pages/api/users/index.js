@@ -3,7 +3,6 @@ import dbConnect from "../utils/dbConnect";
 import Auth, { Authentication } from "../../../functions/protect";
 import createSendToken from "../../../functions/createSendToken";
 import User from "../../../models/userModel";
-import mongoose from "mongoose";
 
 export default async (req, res) => {
   const {
@@ -22,12 +21,10 @@ export default async (req, res) => {
       await Auth(req, "user");
       if (Authentication.validated === true) {
         const users = await User.find({});
-        mongoose.disconnect();
         res
           .status(200)
           .json({ status: "success", total: users.length, data: users });
       } else {
-        mongoose.disconnect();
         res
           .status(Authentication.statusCode)
           .json({ status: "error", msg: Authentication.msg });
@@ -83,11 +80,9 @@ export default async (req, res) => {
       });
       createSendToken(newUser, 201, res);
     } catch (error) {
-      mongoose.disconnect();
       return res.status(400).json({ status: "error", msg: error.message });
     }
   } else {
-    mongoose.disconnect();
     return res.status(404).json({
       status: "error",
       msg: `No ${method} handler defined for /${endpoint} route!`,
