@@ -22,7 +22,9 @@ main {
 
 .big-text {
   font-size: 6em;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Hanalei", cursive;
+
+  /* font-family: "Alfa Slab One", cursive; */
   color: white;
   margin-bottom: 15px;
 }

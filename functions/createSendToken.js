@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 import { serialize } from "cookie";
-import dbConnect from "./dbConnect";
 
 // function to sign token
 const signToken = (id) => {
@@ -31,7 +30,6 @@ const createSendToken = async (user, statusCode, res) => {
 
   // Remove password from output
   user.password = undefined;
-  await dbConnect(false);
   res.status(statusCode).json({ status: "success", token, data: user });
   return;
 };

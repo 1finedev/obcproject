@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import dbConnect from "../../../functions/dbConnect";
+import dbConnect from "../utils/dbConnect";
 import Auth, { Authentication } from "../../../functions/protect";
 import createSendToken from "../../../functions/createSendToken";
 import User from "../../../models/userModel";
@@ -7,18 +7,16 @@ import User from "../../../models/userModel";
 export default async (req, res) => {
   return new Promise(async (resolve) => {
     // Connect to database
+    await dbConnect();
 
     // request methods condition
     const { method } = req;
 
     if (method === "GET") {
       try {
-        dbConnect(true);
-
         await Auth(req, "user");
         if (Authentication.validated === true) {
           const users = await User.find({});
-          dbConnect(false);
           res
             .status(200)
             .json({ status: "success", total: users.length, data: users });
@@ -32,11 +30,15 @@ export default async (req, res) => {
       }
     } else if (method === "POST") {
       try {
-        dbConnect(true);
         const { username, name, mobile, email } = req.body;
+        if (!username || !name || !mobile || !email) {
+          return res.status(400).json({
+            status: "error",
+            msg: "Incomplete request values",
+          });
+        }
         const usernameUsed = await User.findOne({ username });
         if (usernameUsed) {
-          dbConnect(false);
           return res.status(400).json({
             status: "error",
             msg: "Username has already been used",

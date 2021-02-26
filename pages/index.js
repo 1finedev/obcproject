@@ -25,7 +25,7 @@ export default function Home() {
     <div>
       <Head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Potta+One&family=Sacramento&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Hanalei&Alfa+Slab+One&family=Potta+One&family=Sacramento&display=swap"
           rel="stylesheet"
         />
         <title>#1 trusted empowerment website</title>
@@ -40,7 +40,7 @@ export default function Home() {
                 registered users on
               </h2>
             </div>
-            <h2 className="big-text">HustleBee Africa 🌍</h2>
+            <h2 className="big-text">Coding Class 2020 🌍</h2>
 
             <div className="button-container">
               <button className="buttons">
